@@ -93,7 +93,7 @@ return new class extends Migration {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('usaha_id')->constrained('usahas')->onDelete('cascade');
-            $table->string('customer_code')->unique();
+            $table->string('customer_code');
             $table->string('customer_name');
             $table->text('address')->nullable();
             $table->string('phone_number', 20)->nullable();
@@ -107,7 +107,7 @@ return new class extends Migration {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('usaha_id')->constrained('usahas')->onDelete('cascade');
-            $table->string('transaction_number')->unique();
+            $table->string('transaction_number');
             $table->foreignId('user_id')->constrained('users')->onDelete('restrict');
             $table->foreignId('customer_id')->constrained('customers')->onDelete('restrict');
             $table->date('transaction_date');
