@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Auth extends Controller
+class Dashboard extends Controller
 {
     public function index(){
-        return view('auth.login');
+        return view('dashboard.dashboard');
     }
 }

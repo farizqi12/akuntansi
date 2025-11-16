@@ -21,7 +21,7 @@
             <h2 class="text-2xl font-bold text-gray-800 mb-2">AkuntanKu</h2>
             <p class="text-gray-600">Sistem Manajemen Keuangan</p>
         </div>
-        <form method="POST" action="" class="space-y-4">
+        <form method="POST" action="{{ route('login.post') }}" class="space-y-4">
             @csrf
             <div>
                 <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
