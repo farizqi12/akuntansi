@@ -1,11 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth;
+use App\Http\Controllers\Authen;
+use App\Http\Controllers\Dashboard;
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+Route::get('/',[Authen::class, 'index'])->name('login');
 
-Route::get('/login',[Auth::class, 'index'])->name('login');
-
+Route::post('/login', [Authen::class, 'login'])->name('login.post');
+Route::get('/dashboard', [Dashboard::class, 'index'])->name('dashboard');
