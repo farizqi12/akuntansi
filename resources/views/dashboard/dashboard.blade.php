@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Modern</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
     @vite('resources/css/app.css')
     @livewireStyles
 </head>
 
-<body>
+<body class="bg-slate-100">
 
     <nav class="fixed top-0 left-0 h-full bg-white shadow-lg w-64 flex flex-col justify-between py-8 px-6">
         <!-- Logo & Brand -->
@@ -90,8 +91,59 @@
             </button>
         </form>
     </nav>
-    <div class=" ml-68 py-8 px-6">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam unde tenetur non illo molestiae, labore voluptatem laboriosam facilis totam dicta accusamus ea at, officiis esse. Qui debitis fugit incidunt cum.</p>
+
+    {{-- halamam utama disini --}}
+
+    <div class="ml-64 py-8 px-6">
+        <div class="p-4 flex flex-row justify-between">
+            <div>
+                <h2 class="font-extrabold text-4xl mb-3">Halo, {{ auth()->user()->name ?? 'Guest' }}! 👋</h2>
+                <p class="text-slate-500">Ini adalah track record selama satu bulan</p>
+            </div>
+            <div class="flex flex-row gap-5 justify-center items-center">
+
+                <!-- Filter Bulan -->
+                <div
+                    class="bg-white rounded-2xl py-3 px-6 shadow-lg flex items-center gap-3 hover:shadow-xl transition-all cursor-pointer">
+                    <p class="text-slate-700 font-semibold text-lg">Bulan ini</p>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-funnel-fill text-slate-700" viewBox="0 0 16 16">
+                        <path
+                            d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5z" />
+                    </svg>
+                </div>
+
+                <!-- Tombol Kalender -->
+                <div
+                    class="bg-white rounded-2xl p-3 shadow-lg flex items-center justify-center hover:shadow-xl transition-all cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-calendar-fill text-slate-700" viewBox="0 0 16 16">
+                        <path
+                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="flex flex-row gap-6 p-4">
+            <div class="flex flex-col max-w-96 border p-4 rounded-2xl">
+                <h1 class="font-bold text-3xl mb-4">Penjualan Hari Ini</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique atque praesentium fugit nobis
+                    impedit non nihil porro in necessitatibus, ducimus unde labore exercitationem aspernatur vel debitis
+                    laboriosam aliquam culpa. Tempora!</p>
+            </div>
+            <div class="flex flex-col max-w-96 border p-4 rounded-2xl">
+                <h1 class="font-bold text-3xl mb-4">Penjualan Hari Ini</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique atque praesentium fugit nobis
+                    impedit non nihil porro in necessitatibus, ducimus unde labore exercitationem aspernatur vel debitis
+                    laboriosam aliquam culpa. Tempora!</p>
+            </div>
+        </div>
+        <p class="mt-4 p-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam unde tenetur non illo
+            molestiae, labore voluptatem laboriosam facilis totam dicta accusamus ea at, officiis esse. Qui debitis
+            fugit incidunt cum.</p>
     </div>
     @livewireScripts
 </body>

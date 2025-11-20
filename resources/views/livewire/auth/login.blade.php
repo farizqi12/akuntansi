@@ -15,6 +15,12 @@
         </div>
     @endif
 
+    @if (session('alert'))
+        <div class="mb-3 text-red-600 text-sm text-center">
+            {{ session('alert') }}
+        </div>
+    @endif
+
     @if (session('success'))
         <div class="mb-3 text-green-600 text-sm text-center">
             {{ session('success') }}
@@ -26,18 +32,7 @@
         {{-- EMAIL --}}
         <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-
-            <input type="email" wire:model.debounce.500ms="email"
-                class="w-full px-3 py-2 border border-gray-300
-                       rounded-md shadow-sm focus:outline-none
-                       focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
-
-            {{-- Notifikasi realtime --}}
-            @if ($email && !$emailExist)
-                <p class="text-sm text-red-600 mt-1">
-                    Akun belum terdaftar.
-                </p>
-            @endif
+            <input type="email" wire:model.debounce.500ms="email" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
         </div>
 
         {{-- PASSWORD --}}

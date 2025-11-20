@@ -26,7 +26,7 @@ class Login extends Component
         ]);
 
         if (!$this->emailExist) {
-            return session()->flash('error', 'Email belum terdaftar');
+            return session()->flash('alert', 'Email belum terdaftar');
         }
 
         if (!Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
