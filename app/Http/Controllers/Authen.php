@@ -11,20 +11,10 @@ class Authen extends Controller
         return view('auth.login');
     }
 
-    public function login (Request $request){
-        $credential = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|string'
-        ]);
-
-        if(Auth::attempt($credential)){
-            $request->session()->regenerate();
-            $request->session()->flash('success', 'Login berhasil! selamat datang kembali');
-            return redirect()->intended('dashboard');
-        }else{
-            return back()->withErrors([
-                'email' => 'The provided credentials do not match our records.'
-            ])->onlyInput('email');
-        };
+    public function logout(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->flash('success','Sampai jumpa kemabli');
+        return redirect('/');
     }
 }
