@@ -83,9 +83,13 @@
         <form action="{{ route('logout') }}" method="POST" class="mt-10">
             @csrf
             <button type="submit"
-                class="flex items-center gap-2 w-full px-4 py-3 rounded-lg bg-red-500 text-white font-semibold hover:bg-red-600 transition">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M17 16l4-4m0 0l-4-4m4 4H7"></path>
+                class="flex items-center gap-2 w-full px-4 py-3 rounded-lg bg-red-500 text-white font-semibold hover:bg-red-600 transition drop-shadow-2xl">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z" />
+                    <path fill-rule="evenodd"
+                        d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
                 </svg>
                 Logout
             </button>
@@ -98,7 +102,7 @@
         <div class="p-4 flex flex-row justify-between">
             <div>
                 <h2 class="font-extrabold text-4xl mb-3">Halo, {{ auth()->user()->name ?? 'Guest' }}! 👋</h2>
-                <p class="text-slate-500">Ini adalah track record selama satu bulan</p>
+                <p class="text-slate-500">{{ $today }}</p>
             </div>
             <div class="flex flex-row gap-5 justify-center items-center">
 
@@ -128,18 +132,68 @@
 
 
         <div class="flex flex-row gap-6 p-4">
-            <div class="flex flex-col max-w-96 border p-4 rounded-2xl">
-                <h1 class="font-bold text-3xl mb-4">Penjualan Hari Ini</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique atque praesentium fugit nobis
-                    impedit non nihil porro in necessitatibus, ducimus unde labore exercitationem aspernatur vel debitis
-                    laboriosam aliquam culpa. Tempora!</p>
+            <div class="flex flex-col max-w-96 p-4 rounded-2xl bg-white shadow-lg">
+                <div class="flex justify-between items-baseline mb-10">
+                    <div class="w-16 h-16 flex items-center justify-center bg-white rounded-lg shadow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            class="bi bi-receipt-cutoff" viewBox="0 0 16 16">
+                            <path
+                                d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5M11.5 4a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z" />
+                            <path
+                                d="M2.354.646a.5.5 0 0 0-.801.13l-.5 1A.5.5 0 0 0 1 2v13H.5a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1H15V2a.5.5 0 0 0-.053-.224l-.5-1a.5.5 0 0 0-.8-.13L13 1.293l-.646-.647a.5.5 0 0 0-.708 0L11 1.293l-.646-.647a.5.5 0 0 0-.708 0L9 1.293 8.354.646a.5.5 0 0 0-.708 0L7 1.293 6.354.646a.5.5 0 0 0-.708 0L5 1.293 4.354.646a.5.5 0 0 0-.708 0L3 1.293zm-.217 1.198.51.51a.5.5 0 0 0 .707 0L4 1.707l.646.647a.5.5 0 0 0 .708 0L6 1.707l.646.647a.5.5 0 0 0 .708 0L8 1.707l.646.647a.5.5 0 0 0 .708 0L10 1.707l.646.647a.5.5 0 0 0 .708 0L12 1.707l.646.647a.5.5 0 0 0 .708 0l.509-.51.137.274V15H2V2.118z" />
+                        </svg>
+                    </div>
+                    <div class="bg-green-600 py-1 px-3 rounded-4xl shadow-lg">
+                        <p class="font-bold text-white"> + 2.08%</p>
+                    </div>
+                </div>
+                <div>
+                    <p class="font-light text-slate-500 mb-4">Total Penjualan</p>
+                </div>
+                <div class="flex flex-row gap-3 justify-center items-center">
+                    <div class="font-extrabold text-5xl">$123,45</div>
+                    <div class="font-bold">Production vs last mounth</div>
+                </div>
             </div>
-            <div class="flex flex-col max-w-96 border p-4 rounded-2xl">
-                <h1 class="font-bold text-3xl mb-4">Penjualan Hari Ini</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique atque praesentium fugit nobis
-                    impedit non nihil porro in necessitatibus, ducimus unde labore exercitationem aspernatur vel debitis
-                    laboriosam aliquam culpa. Tempora!</p>
+            
+            <div class="flex flex-col max-w-96 p-6 rounded-3xl bg-white shadow-xl border border-slate-100">
+                <div class="flex justify-between items-start mb-8">
+
+                    <!-- ICON -->
+                    <div
+                        class="w-16 h-16 flex items-center justify-center rounded-2xl 
+                                bg-gradient-to-br from-blue-50 to-blue-100 shadow-inner">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-blue-600" fill="currentColor"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5M11.5 4a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z" />
+                            <path
+                                d="M2.354.646a.5.5 0 0 0-.801.13l-.5 1A.5.5 0 0 0 1 2v13H.5a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1H15V2a.5.5 0 0 0-.053-.224l-.5-1a.5.5 0 0 0-.8-.13L13 1.293l-.646-.647a.5.5 0 0 0-.708 0L11 1.293l-.646-.647a.5.5 0 0 0-.708 0L9 1.293 8.354.646a.5.5 0 0 0-.708 0L7 1.293 6.354.646a.5.5 0 0 0-.708 0L5 1.293 4.354.646a.5.5 0 0 0-.708 0L3 1.293z" />
+                        </svg>
+                    </div>
+
+                    <!-- BADGE -->
+                    <div class="bg-green-500 text-white px-4 py-1 rounded-full shadow-lg text-sm font-semibold">
+                        + 2.08%
+                    </div>
+                </div>
+
+                <!-- LABEL -->
+                <p class="text-slate-500 font-medium tracking-tight mb-3">
+                    Total Penjualan
+                </p>
+
+                <!-- VALUE -->
+                <div class="flex items-center gap-4">
+                    <div class="text-5xl font-extrabold tracking-tight text-slate-800">
+                        $123,45
+                    </div>
+                    <div class="text-slate-400 font-medium text-sm">
+                        dibanding bulan lalu
+                    </div>
+                </div>
             </div>
+
         </div>
         <p class="mt-4 p-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam unde tenetur non illo
             molestiae, labore voluptatem laboriosam facilis totam dicta accusamus ea at, officiis esse. Qui debitis
